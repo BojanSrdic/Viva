@@ -1,10 +1,11 @@
 import React from "react"
 import {View, Text, StyleSheet, Dimensions, Image, Animated} from "react-native"
+import VARIABLES from '../constants/Variables'
 
 const DEVICEWIDTH = Math.round(Dimensions.get('window').width)
 const RADIUS = 20;
 const OFFSET = 50;
-const HEIGHT = 150;
+const HEIGHT = VARIABLES.HOMECARDHIGHT;
 
 type HomeCardProps = {
     imageURI: any;
@@ -13,10 +14,10 @@ type HomeCardProps = {
 
 const HomeModuleCard = ({imageURI, title}: HomeCardProps) => {
     return (
-        <View style = {styles.container}>
-            <Image style = {styles.imageStyle} source={imageURI} />
-            <Text style={styles.textStyle}>{title}</Text>
-        </View>
+            <View style = {styles.container}>
+                <Image style = {styles.imageStyle} source={imageURI} />
+                <Text style={styles.textStyle}>{title}</Text>
+            </View>
     );
 }
 

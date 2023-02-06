@@ -27,8 +27,10 @@ const styles = StyleSheet.create({
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------
 
-	1. Navigation 						=>
+	1. Navigation 						    =>
 	2. BottomBarNavigation 				=> https://www.youtube.com/watch?v=I7POH4acHV8&ab_channel=BasirPayenda
+
+  3. Touchable Components       => https://www.youtube.com/watch?v=QhX25YGf8qg 
 
   1. Home Screen Card Item Animation  => https://www.youtube.com/watch?v=F8x-dyIsrJ8
   2. Splash Screen Animation          => 

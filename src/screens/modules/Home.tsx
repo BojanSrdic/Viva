@@ -2,6 +2,8 @@ import React from "react"
 import {View, Text, StyleSheet, Dimensions, Image, Animated} from "react-native"
 import { StatusBar } from "expo-status-bar";
 import HomeModuleCard from "../../componenets/HomeModuleCard";
+import VARIABLES from '../../constants/Variables';
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const image1 = require('../../../assets/post1.jpeg');
 const image2 = require('../../../assets/post2.jpeg');
@@ -10,7 +12,7 @@ const image4 = require('../../../assets/post4.jpeg');
 const image5 = require('../../../assets/post5.jpeg');
 
 const DEVICEWIDTH = Math.round(Dimensions.get('window').width)
-const HEIGHT = 150;
+const HEIGHT = VARIABLES.HOMECARDHIGHT;
 const ITEM_SIZE = HEIGHT + 25;
 
 const Home = () => {
@@ -32,9 +34,12 @@ const Home = () => {
             inputRange: opacityinputRange,
             outputRange: [1, 1, 1, 0]
         })
+
         return (
             <Animated.View style={[styles.cardItemAnimatedView, { transform: [{ scale }] }, { opacity }]}>
-                <HomeModuleCard key={item.id} imageURI={item.imageURI} title={item.title} />
+                <TouchableOpacity onPress={() => pressHandler(item.id)}>
+                    <HomeModuleCard key={item.id} imageURI={item.imageURI} title={item.title} />
+                </TouchableOpacity>
             </Animated.View>
         );
     }
@@ -46,6 +51,11 @@ const Home = () => {
                 keyExtractor={(data) => data.id.toString()} showsVerticalScrollIndicator={false} />
         </View>
     );
+}
+
+// Exstract to navigation folder HomeFlatListNavigarion
+const pressHandler = (id: any) => {
+    throw new Error("Function not implemented.");
 }
 
 const styles = StyleSheet.create({
@@ -92,44 +102,10 @@ const seedDataHomeCard = [
         id: 8,
         imageURI: image1,
         title: 'Disanje',
-    }, {
-        id: 9,
-        imageURI: image1,
-        title: 'Disanje',
-    }, {
-        id: 10,
-        imageURI: image1,
-        title: 'Disanje',
-    }, {
-        id: 11,
-        imageURI: image1,
-        title: 'Disanje',
-    }, {
-        id: 12,
-        imageURI: image1,
-        title: 'Disanje',
-    }, {
-        id: 13,
-        imageURI: image1,
-        title: 'Disanje',
-    }, {
-        id: 14,
-        imageURI: image1,
-        title: 'Disanje',
-    }, {
-        id: 15,
-        imageURI: image1,
-        title: 'Disanje',
-    }, {
-        id: 16,
-        imageURI: image1,
-        title: 'Disanje',
     },
-
     {
-        id: 18,
-
-    },
+        id: 10,
+    }
 ];
 
 export default Home;
