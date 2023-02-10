@@ -1,10 +1,12 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from '../screens/modules/Home';
-import Saved from '../screens/modules/Saved';
-import AboutUs from '../screens/modules/AboutUs';
+import Home from '../screens/tabs/Home';
+import Saved from '../screens/tabs/Saved';
+import AboutUs from '../screens/tabs/AboutUs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StyleSheet } from 'react-native';
+import SettingsNavigator from './HomeFlatListNavigator';
+import { ROUTES } from '../constants/United';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,7 +17,7 @@ function BottomTabNavigator() {
         tabBarStyle: styles.tabBarStyle,        
         }} >
       
-      <Tab.Screen name="Home" component={Home} options={{
+      <Tab.Screen name="Home" component={SettingsNavigator} options={{
         headerShown: false,
         tabBarIcon: ({ color }) => <TabBarIcon name="home-outline" color={color} />,
       }}/>

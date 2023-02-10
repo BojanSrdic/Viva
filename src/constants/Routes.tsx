@@ -1,3 +1,5 @@
+import BreathingScreen from "../screens/modules/Breathing";
+
 export default {
     LOGIN: 'Login',
     REGISTER: 'Register',
@@ -19,4 +21,8 @@ export default {
   
     SETTINGS_DETAIL: 'Settings Detail',
     PROFILE: 'My Profile',
+
+    BREATHING: 'Breathing',
+
+
   };

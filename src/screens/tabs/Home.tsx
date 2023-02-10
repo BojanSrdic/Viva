@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import {View, Text, StyleSheet, Dimensions, Image, Animated} from "react-native"
 import { StatusBar } from "expo-status-bar";
 import HomeModuleCard from "../../componenets/HomeModuleCard";
 import VARIABLES from '../../constants/Variables';
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { ROUTES } from "../../constants/United";
 
 const image1 = require('../../../assets/post1.jpeg');
 const image2 = require('../../../assets/post2.jpeg');
@@ -15,7 +16,7 @@ const DEVICEWIDTH = Math.round(Dimensions.get('window').width)
 const HEIGHT = VARIABLES.HOMECARDHIGHT;
 const ITEM_SIZE = HEIGHT + 25;
 
-const Home = () => {
+const Home = ({navigation} : any) => {
     const scrolly = React.useRef(new Animated.Value(0)).current;
 
     const onCardScroll = Animated.event(
@@ -37,7 +38,7 @@ const Home = () => {
 
         return (
             <Animated.View style={[styles.cardItemAnimatedView, { transform: [{ scale }] }, { opacity }]}>
-                <TouchableOpacity onPress={() => pressHandler(item.id)}>
+                <TouchableOpacity onPress={() => navigation.navigate(ROUTES.BREATHING)} /*onPress={() => pressHandler(item.id)}*/ >
                     <HomeModuleCard key={item.id} imageURI={item.imageURI} title={item.title} />
                 </TouchableOpacity>
             </Animated.View>
@@ -55,6 +56,7 @@ const Home = () => {
 
 // Exstract to navigation folder HomeFlatListNavigarion
 const pressHandler = (id: any) => {
+
     throw new Error("Function not implemented.");
 }
 
